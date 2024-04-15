@@ -1,13 +1,66 @@
 <template>
-    <div>
-        
+  <div>
+    <div style="text-align: center">
+      <h2>Log In</h2>
+      <div id="loginForm">
+        <form @submit.prevent="fnLogin">
+          <div>
+            <input
+              class="w3-input"
+              name="uid"
+              placeholder="Enter your ID"
+              v-model="user_id"
+            />
+          </div>
+          <div>
+            <input
+              name="password"
+              class="w3-input"
+              placeholder="Enter your password"
+              v-model="user_pw"
+              type="password"
+            />
+          </div>
+          <div>
+            <button type="submit" class="w3-button w3-green w3-round">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </template>
+
 <script>
 export default {
-    name: "LoginView",
-}
+  data() {
+    return {
+      user_id: "",
+      user_pw: "",
+    };
+  },
+  methods: {
+    fnLogin() {
+      if (this.user_id === "") {
+        alert("ID를 입력하세요.");
+        return;
+      }
+
+      if (this.user_pw === "") {
+        alert("비밀번호를 입력하세요.");
+        return;
+      }
+
+      alert("로그인 되었습니다.");
+    },
+  },
+};
 </script>
+
 <style>
-    
+#loginForm {
+  width: 500px;
+  margin: auto;
+}
 </style>
