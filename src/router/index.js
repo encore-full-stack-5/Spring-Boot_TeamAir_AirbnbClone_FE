@@ -1,5 +1,6 @@
 import HostMainView from "@/views/HostMainView.vue";
 import HostingListView from "@/views/HostingListView.vue";
+import HostingNewRoomView from "@/views/HostingNewRoomView.vue";
 import { createWebHistory, createRouter } from "vue-router";
 
 const routes = [
@@ -10,6 +11,10 @@ const routes = [
     {
       path: "/hosting/listings",
       component: HostingListView
+    },
+    {
+      path: "/become-a-host",
+      component: HostingNewRoomView
     }
   ];
   const router = createRouter({

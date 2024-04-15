@@ -48,7 +48,7 @@
     import NavBar from '../components/NavBar/HostNavBar.vue'
 
     export default {
-        name: "HostMainView",
+        name: "HostingListView",
         components: {
             NavBar
         }
