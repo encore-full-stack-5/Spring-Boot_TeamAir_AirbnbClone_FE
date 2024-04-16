@@ -1,10 +1,11 @@
 import { createWebHistory, createRouter } from "vue-router";
+import MainView from "../views/MainView.vue"
 
 const routes = [
-    // {
-    //   path: "/login",
-    //   component: LoginView,
-    // },
+    {
+      path: "/",
+      component: MainView,
+    },
   ];
   const router = createRouter({
     history: createWebHistory(),
