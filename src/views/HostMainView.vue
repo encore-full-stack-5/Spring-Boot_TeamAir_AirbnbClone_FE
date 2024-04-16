@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavBar/>
+        <NavBar active="today" />
         <p>호 스 트 메 인 입 니 다</p>
     </div>
 </template>

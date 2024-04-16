@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavBar/>
+        <NavBar active="room"/>
         <div class="listBox">
             <div class="listHeader">
                 <h1>숙소</h1>
@@ -92,6 +92,11 @@
 .roomBox {
     display: flex;
     flex-direction: column;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-in-out;
+}
+.roomBox:hover {
+    transform: rotate(360deg);
 }
 .roomBox img{
     width: 26vw;
