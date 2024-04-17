@@ -4,6 +4,7 @@ import HostingNewRoomView from "@/views/HostingNewRoomView.vue";
 import { createWebHistory, createRouter } from "vue-router";
 import LoginView from "../views/LoginView";
 import MainView from "../views/MainView.vue"
+import RoomDetailView from "../views/RoomDetailView.vue"
 
 const routes = [
   {
@@ -25,6 +26,10 @@ const routes = [
   {
     path: "/login",
     component: LoginView,
+  },
+  {
+    path: "/roomDetail/:id",
+    component: RoomDetailView,
   },
 ];
 const router = createRouter({
