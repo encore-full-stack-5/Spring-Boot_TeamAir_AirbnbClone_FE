@@ -1,6 +1,5 @@
 <template>
     <div>
-        
         <NavBar active="room"/>
         <div class="roomInputBox">
             <div class="roomInput">
@@ -40,13 +39,16 @@
                 <input id="detailAddr" 
                     class="roomInfoInputLong" type="text">
             </div>
-            <hr>
+            <!-- <hr> -->
             <div class="roomInput">
                 <!-- /become-a-host/{host_id}/location -->
                 <p>위치 확인</p>
-                <div id="map">
-
-                </div>
+                <KakaoMap id="map" 
+                    ref="kakaomapRef"
+                    :width=400 :height=300 
+                    :location="location" 
+                    :isVisible="mapIsVisible"
+                />
             </div>
             <hr>
             <div class="roomInput">
@@ -182,23 +184,63 @@
         </div>
     </div>
 </template>
-<!--  -->
+
+
 <script>
 import NavBar from '../../components/NavBar/HostNavBar.vue'
 import CheckBox from '../../components/HostCheckBox.vue'
+import KakaoMap from '../../components/KakaoMap.vue'
 
 export default {
     name: "HostingNewRoomView",
     components: {
         NavBar,
         CheckBox,
+        KakaoMap,
+    },
+    data() {
+      return {
+        location: [],
+        mapIsVisible: false,
+      };
+    },
+    mounted() {
+        if (!(window.kakao && window.kakao.maps)) {
+            this.geocoderInit();
+        }
     },
     methods: {
+        geocoderInit() {
+            const geocoderScript = document.createElement("script");
+            /* global kakao */
+            geocoderScript.src = "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=915cffed372954b7b44804ed422b9cf0&libraries=services,clusterer&autoload=false";
+            document.head.appendChild(geocoderScript);  
+        },
         findAddr() {
             new window.daum.Postcode({
-                oncomplete: function (data) {
-                    document.getElementById("basicAddr").value = data.roadAddress;
+                oncomplete: async (data) => {
+                    document.getElementById("basicAddr").value = data.roadAddress || data.jibunAddress;
                     document.getElementById("zipNum").value = data.zonecode;
+
+                    // find coordinates using by geocoder 
+                    const geocoder = new kakao.maps.services.Geocoder();
+                    await geocoder.addressSearch(data.roadAddress || data.jibunAddress, (res, stat) => {
+                        if (stat === kakao.maps.services.Status.OK) {
+                            const result = new kakao.maps.LatLng(res[0].x, res[0].y);
+                            // this.mapIsVisible = true;
+                            this.$refs.kakaomapRef.initSize(true);
+                            // this.location = [result.getLng(), result.getLat()];
+                            this.$refs.kakaomapRef.displayMarker([result.getLng(), result.getLat()]);
+
+                        } else {
+                            alert(
+                                "ERROR: UNKNOWN EXCEPTION.\n"+
+                                "to [services.Geocoder]\n"+
+                                "from '/api/geocoder.js'"
+                            );
+                            return null;
+                        }
+                    });
                 }
             }).open();
         },
@@ -215,7 +257,7 @@ export default {
                 }
             }
             gotoTopFunction();
-        }
+        },
     },
 }
 </script>
@@ -245,6 +287,10 @@ hr {
     bottom: 60px;
     right: 70px;
     cursor: pointer;
+}
+#map {
+    width: 400px;
+    height: 300px;
 }
 
 
