@@ -7,11 +7,11 @@
             />
         </svg>
         <div class="navMenu">
-            <div id="today">투데이</div>
-            <div id="calender">달력</div>
-            <div id="room">숙소</div>
-            <div id="msg">메시지</div>
-            <div id="menu">메뉴</div>
+            <div id="today" @click="RouteTab('/hosting')">투데이</div>
+            <div id="calender" @click="Alert('구현되지 않았습니다.')">달력</div>
+            <div id="room" @click="RouteTab('/hosting/listings')">숙소</div>
+            <div id="msg" @click="Alert('구현되지 않았습니다.')">메시지</div>
+            <div id="menu" @click="Alert('구현되지 않았습니다.')">메뉴</div>
         </div>
         <img class="profileIcon" src="" alt="">
     </div>
@@ -19,20 +19,24 @@
 <script>
 export default {
     name: "HostNavBar",
-    components: {
-    },
     props: {
       active: String,
     },
     mounted() {
-        this.activeNavBar(this.active)
+        this.ActiveNavBar(this.active)
     },
     methods: {
-        activeNavBar(e) {
+        ActiveNavBar(e) {
             const tab = document.getElementById(e);
             // tap.style.borderBottom ="2px solid black";
             tab.style.setProperty('--under-bar', "2px solid black");
-        }
+        },
+        Alert(s){
+            alert(s);
+        },
+        RouteTab(p) {
+            this.$router.push({ path: p })
+        },
     }
 }
 </script>
@@ -62,6 +66,7 @@ export default {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    font-size: 11pt;
     font-weight: bold;
     border-bottom: 2px solid white;
     border-bottom: var(--under-bar);
