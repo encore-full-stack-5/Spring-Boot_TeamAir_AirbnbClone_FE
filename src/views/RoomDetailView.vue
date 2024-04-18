@@ -1,13 +1,14 @@
 <template>
-    <div>
-        
-    </div>
+  <div>
+    <h1>
+      한강 비내섬과 앙성온천 근처 일출 아름다운 독채 (2박시 1박 50% 할인, 상세
+      참조)
+    </h1>
+  </div>
 </template>
 <script>
 export default {
-    name: "RoomDetailView",
-}
+  name: "RoomDetailView",
+};
 </script>
-<style>
-    
-</style>
+<style></style>
