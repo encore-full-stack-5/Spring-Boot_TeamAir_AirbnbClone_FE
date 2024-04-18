@@ -43,11 +43,13 @@
             <div class="roomInput">
                 <!-- /become-a-host/{host_id}/location -->
                 <p>위치 확인</p>
+                <div v-if="!mapIsVisible" class="mapBeforeSet">여기에 위치가 표시됩니다.</div>
                 <KakaoMap id="map" 
                     ref="kakaomapRef"
                     :width=400 :height=300 
                     :location="location" 
                     :isVisible="mapIsVisible"
+                    :changeMarkerToCenter="true"
                 />
             </div>
             <hr>
@@ -213,7 +215,7 @@ export default {
         geocoderInit() {
             const geocoderScript = document.createElement("script");
             /* global kakao */
-            geocoderScript.src = "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=915cffed372954b7b44804ed422b9cf0&libraries=services,clusterer&autoload=false";
+            geocoderScript.src = "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=61cc89dd5d4f852a57a81b7ffd989ef6&libraries=services,clusterer&autoload=false";
             document.head.appendChild(geocoderScript);  
         },
         findAddr() {
@@ -227,18 +229,10 @@ export default {
                     await geocoder.addressSearch(data.roadAddress || data.jibunAddress, (res, stat) => {
                         if (stat === kakao.maps.services.Status.OK) {
                             const result = new kakao.maps.LatLng(res[0].x, res[0].y);
-                            // this.mapIsVisible = true;
+                            this.mapIsVisible = true;
                             this.$refs.kakaomapRef.initSize(true);
                             // this.location = [result.getLng(), result.getLat()];
                             this.$refs.kakaomapRef.displayMarker([result.getLng(), result.getLat()]);
-
-                        } else {
-                            alert(
-                                "ERROR: UNKNOWN EXCEPTION.\n"+
-                                "to [services.Geocoder]\n"+
-                                "from '/api/geocoder.js'"
-                            );
-                            return null;
                         }
                     });
                 }
@@ -291,6 +285,15 @@ hr {
 #map {
     width: 400px;
     height: 300px;
+}
+.mapBeforeSet{
+    width: 400px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(235, 235, 235);
+    color: gray;
 }
 
 

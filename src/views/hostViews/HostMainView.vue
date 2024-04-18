@@ -2,31 +2,31 @@
     <div>
         <NavBar active="today" />
         <div class="hostMainBox">
-            <h1>{{ "{guestName}" }}님, 안녕하세요!</h1>
+            <h1>{{ hostName }}님, 안녕하세요!</h1>
             <div class="reserveHead">
                 <h2 style="font-weight: bolder;">예약</h2>
-                <h4 style="cursor: pointer;">모든 예약 {{ "n" }}개</h4>
+                <h4 style="cursor: pointer;">모든 예약 {{ totalReserve }}개</h4>
             </div>
             <div class="reserveCategory">
                 <div id="checkOut"
                     @click="ActiveCategory('checkOut')">
-                    체크아웃 예정({{ "n" }})건
+                    체크아웃 예정({{ checkOut }})건
                 </div>
-                <div id="hostingNow"
-                    @click="ActiveCategory('hostingNow')">
-                    현재 호스팅 중({{ "n" }})건
+                <div id="nowHosting"
+                    @click="ActiveCategory('nowHosting')">
+                    현재 호스팅 중({{ nowHosting }})건
                 </div>
                 <div id="checkIn"
                     @click="ActiveCategory('checkIn')">
-                    체크인 예정({{ "n" }})건
+                    체크인 예정({{ checkIn }})건
                 </div>
-                <div id="reserve"
-                    @click="ActiveCategory('reserve')">
-                    예정({{ "n" }})건
+                <div id="schedule"
+                    @click="ActiveCategory('schedule')">
+                    예정({{ schedule }})건
                 </div>
-                <div id="review"
-                    @click="ActiveCategory('review')">
-                    작성할 후기({{ "n" }})건
+                <div id="needReview"
+                    @click="ActiveCategory('needReview')">
+                    작성할 후기({{ needReview }})건
                 </div>
             </div>
             <div class="reserveListBox">
@@ -46,6 +46,13 @@
         data() {
             return {
                 activeCategory: "checkOut",
+                hostName: "{name here}",
+                totalReserve: 0,
+                checkOut: 0,
+                checkIn: 0,
+                nowHosting: 0,
+                schedule: 0,
+                needReview: 0
             }
         },
         mounted() {
