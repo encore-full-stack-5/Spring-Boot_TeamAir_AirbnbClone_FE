@@ -1,12 +1,18 @@
 <template>
     <div>
-        
+        <NavBar/>
+        <p>호 스 트 메 인 입 니 다</p>
     </div>
 </template>
 <script>
-export default {
-    name: "HostMainView",
-}
+    import NavBar from '../components/NavBar/HostNavBar.vue'
+
+    export default {
+        name: "HostMainView",
+        components: {
+            NavBar
+        }
+    }
 </script>
 <style>
     
