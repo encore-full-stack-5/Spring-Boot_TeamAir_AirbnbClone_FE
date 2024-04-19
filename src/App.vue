@@ -1,23 +1,24 @@
 <template>
   <div>
-    <GuestNavBar/>
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <GuestNavBar />
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <RouterLink to="/PaymentView">결제 페이지 링크</RouterLink>
     <RouterView></RouterView>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import GuestNavBar from './components/NavBar/GuestNavBar.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import GuestNavBar from "./components/NavBar/GuestNavBar.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     HelloWorld,
-    GuestNavBar
-  }
-}
+    GuestNavBar,
+  },
+};
 </script>
 
 <style>
@@ -29,16 +30,17 @@ export default {
   color: #2c3e50;
   font-size: 20px;
 }
-  .icon {
-    color: rgb(255, 56, 92) !important;
-    cursor: pointer;
-  }
-  body{
-    padding: 0px;
-    margin: 0px;
-    box-sizing: 0px;
-  }
-  div{
-    font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;
-  }
+.icon {
+  color: rgb(255, 56, 92) !important;
+  cursor: pointer;
+}
+body {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: 0px;
+}
+div {
+  font-family: "Circular", -apple-system, "BlinkMacSystemFont", "Roboto",
+    "Helvetica Neue", sans-serif;
+}
 </style>

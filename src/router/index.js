@@ -2,24 +2,24 @@ import HostMainView from "@/views/HostMainView.vue";
 import HostingListView from "@/views/HostingListView.vue";
 import HostingNewRoomView from "@/views/HostingNewRoomView.vue";
 import { createWebHistory, createRouter } from "vue-router";
-import LoginView from "../views/LoginView";
+import PaymentView from "../views/PaymentView.vue";
 
 const routes = [
   {
     path: "/hosting",
-    component: HostMainView
+    component: HostMainView,
   },
   {
     path: "/hosting/listings",
-    component: HostingListView
+    component: HostingListView,
   },
   {
     path: "/become-a-host",
-    component: HostingNewRoomView
+    component: HostingNewRoomView,
   },
   {
-    path: "/login",
-    component: LoginView,
+    path: "/PaymentView",
+    component: PaymentView,
   },
 ];
 const router = createRouter({
