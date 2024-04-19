@@ -43,14 +43,18 @@
             <div class="roomInput">
                 <!-- /become-a-host/{host_id}/location -->
                 <p>위치 확인</p>
-                <div v-if="!mapIsVisible" class="mapBeforeSet">여기에 위치가 표시됩니다.</div>
+                <p class="smallText">지도를 움직여 정확한 위치로 이동해 주세요.</p>
+                <div v-if="!mapIsVisible" class="mapBeforeSet">여기에 지도가 표시됩니다.</div>
                 <KakaoMap id="map" 
                     ref="kakaomapRef"
                     :width=400 :height=300 
-                    :location="location" 
+                    v-model:location.sync="location" 
                     :isVisible="mapIsVisible"
                     :changeMarkerToCenter="true"
                 />
+                <CheckBox name="locationHide" value="정확한 위치 숨기기"
+                    @change="(e) => changeLocationHide(e)" />
+                <p class="smallText">체크시 예약 하기 전에는 정확한 위치 대신 빨간 원을 보여줍니다.</p>
             </div>
             <hr>
             <div class="roomInput">
@@ -231,8 +235,8 @@ export default {
                             const result = new kakao.maps.LatLng(res[0].x, res[0].y);
                             this.mapIsVisible = true;
                             this.$refs.kakaomapRef.initSize(true);
-                            // this.location = [result.getLng(), result.getLat()];
-                            this.$refs.kakaomapRef.displayMarker([result.getLng(), result.getLat()]);
+                            this.location = [result.getLng(), result.getLat()];
+                            this.$refs.kakaomapRef.displayMarker(this.location);
                         }
                     });
                 }
@@ -251,6 +255,13 @@ export default {
                 }
             }
             gotoTopFunction();
+        },
+        changeLocationHide(e) {
+            if(e.target.checked){
+                this.$refs.kakaomapRef.displayCircle(true);
+            } else {
+                this.$refs.kakaomapRef.displayCircle(false);
+            }
         },
     },
 }
@@ -396,5 +407,8 @@ input {
 }
 .confirmRoom:hover {
     background-color: whitesmoke;
+}
+.smallText {
+    font-size: 11pt
 }
 </style>

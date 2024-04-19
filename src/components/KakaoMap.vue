@@ -7,11 +7,13 @@
 <script>
 import { toRaw } from "vue";
 
-export default {
+ export default {
 name: "KakaoMap",
 data() {
     return {
         markers: [],
+        circleLocation: [],
+        circle: null,
     };
 },
 props: {
@@ -34,7 +36,7 @@ props: {
     changeMarkerToCenter: {
         type: Boolean,
         default: false
-    }
+    },
 },
 mounted() {
     this.initSize();
@@ -74,7 +76,11 @@ methods: {
         if (this.changeMarkerToCenter){
             kakao.maps.event.addListener(this.map, 'mouseup', () => {
                 const LatLng = this.map.getCenter();
-                this.displayMarker([LatLng.getLat(), LatLng.getLng()]);
+                if(this.circle == null) {
+                    this.displayMarker([LatLng.getLat(), LatLng.getLng()]);
+                } else {
+                    this.displayCircle(true);
+                }
             });
         }
 
@@ -82,6 +88,8 @@ methods: {
     },
 
     displayMarker(l = this.location) {
+        if(this.circle != null) return;
+
         // 마커 초기화
         if (this.markers.length > 0) {
             this.markers.forEach(marker => {
@@ -95,16 +103,43 @@ methods: {
         const marker = new kakao.maps.Marker({ position });
         marker.setMap(this.map);
         this.markers.push(marker);
-        // this.markers = new kakao.maps.Marker({ map: toRaw(this.map), position });
-
-        // // 마커들의 중심 위치로 지도 위치 및 범위 재설정
-        // let bounds = new kakao.maps.LatLngBounds();
-        // bounds.extend(position);
-        // toRaw(this.map).setBounds(bounds);
 
         // 지도 중심 재설정
         this.map.setCenter(position);
     },
+
+    displayCircle(visible) {
+        if (this.circle != null) {
+            this.circle.setMap(null);
+            this.circle = null;
+        }
+
+        if (visible) {
+            if (this.markers.length > 0) {
+                this.markers.forEach(marker => {
+                    marker.setMap(null);
+                });
+                this.markers = [];
+            }
+            const LatLng = this.map.getCenter();
+            this.circleLocation = [
+                LatLng.getLat()+Math.round((crypto.getRandomValues(new Int16Array(1))[0]/65536)*1000)/1500000,
+                LatLng.getLng()+Math.round((crypto.getRandomValues(new Int16Array(1))[0]/65536)*1000)/1500000,
+            ]
+            this.circle = new kakao.maps.Circle({
+                // center : new kakao.maps.LatLng(LatLng.getLat(), LatLng.getLng()),
+                center : new kakao.maps.LatLng(this.circleLocation[0], this.circleLocation[1]),
+                radius: 75,
+                strokeWeight: 0,
+                fillColor: '#ff0000',
+                fillOpacity: 0.5,
+            });
+            this.circle.setMap(this.map); 
+        } else {
+            const LatLng = this.map.getCenter();
+            this.displayMarker([LatLng.getLat(), LatLng.getLng()]);
+        }
+    }
 },
 };
 </script>
