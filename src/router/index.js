@@ -4,6 +4,7 @@ import HostingNewRoomView from "@/views/HostingNewRoomView.vue";
 import { createWebHistory, createRouter } from "vue-router";
 import LoginView from "../views/LoginView";
 import ReservationListView from "../views/ReservationListView";
+import WishListView from "../views/WishListView";
 
 const routes = [
   {
@@ -25,6 +26,10 @@ const routes = [
   {
     path: "/reservation",
     component: ReservationListView,
+  },
+  {
+    path: "/wishlist",
+    component: WishListView,
   },
 ];
 const router = createRouter({

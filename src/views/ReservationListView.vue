@@ -75,7 +75,7 @@
       >
       </TripCard>
     </div>
-    <div>
+    <div style="font-size: 13px; px-4">
       <h2 style="text-align: left">이전 여행지</h2>
     </div>
     <div class="card-wrapper-container">
