@@ -66,8 +66,9 @@ methods: {
     initMap() {
         const container = document.getElementById("map");
         const options = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667),
-        level: 3,
+            center: new kakao.maps.LatLng(33.450701, 126.570667),
+            level: 3,
+            disableDoubleClickZoom: true,
         };
 
         this.map = new kakao.maps.Map(container, options);
@@ -149,6 +150,7 @@ methods: {
 #map {
     width: 10px;
     height: 10px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
 }

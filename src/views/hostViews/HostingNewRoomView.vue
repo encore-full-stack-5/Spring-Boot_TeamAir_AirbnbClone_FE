@@ -301,6 +301,7 @@ hr {
     width: 400px;
     height: 300px;
     display: flex;
+    border-radius: 10px;
     align-items: center;
     justify-content: center;
     background-color: rgb(235, 235, 235);
