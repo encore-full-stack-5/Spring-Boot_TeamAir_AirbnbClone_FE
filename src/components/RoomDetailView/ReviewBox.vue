@@ -1,6 +1,8 @@
 <template>
   <div class="mainbox">
-    <div class="xbutton"></div>
+    <div class="xbutton" style="margin-top: 20px">
+      <button style="float: Right" @click="$emit('someEvent')">X</button>
+    </div>
     <div class="contentbox">
       <div class="star">
         <div class="bigstar">
@@ -20,6 +22,7 @@
           <div>{{ 5.0 }}</div>
         </div>
       </div>
+
       <div class="reviewbox">
         <div class="first line">
           <div>후기 150개</div>
@@ -49,7 +52,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "ReviewBox",
+  props: {
+    isReviewBoxOpen: Boolean,
+  },
+};
 </script>
 
-<style></style>
+<style>
+.mainbox {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  background-color: aqua;
+}
+</style>

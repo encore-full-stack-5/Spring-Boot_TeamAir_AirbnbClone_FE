@@ -2,20 +2,18 @@
   <div>
     <GuestNavBar />
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
     <RouterLink to="/PaymentView">결제 페이지 링크</RouterLink>
+    <RouterLink to="/RoomDetailView">방 정보 페이지 링크</RouterLink>
     <RouterView></RouterView>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import GuestNavBar from "./components/NavBar/GuestNavBar.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
     GuestNavBar,
   },
 };

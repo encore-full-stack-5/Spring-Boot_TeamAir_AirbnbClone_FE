@@ -8,6 +8,23 @@
         <div>
           <div>
             <h2>{{ "방 제목" }}</h2>
+            <button
+              @click="
+                () => {
+                  this.isReviewBoxOpen = !this.isReviewBoxOpen;
+                }
+              "
+            >
+              Review
+            </button>
+            <ReviewBoxVue
+              v-show="this.isReviewBoxOpen"
+              @some-event="
+                () => {
+                  this.isReviewBoxOpen = !this.isReviewBoxOpen;
+                }
+              "
+            ></ReviewBoxVue>
           </div>
           <div>
             <h4>{{ "대여 공간" }}</h4>
@@ -30,8 +47,17 @@
   </div>
 </template>
 <script>
+import ReviewBoxVue from "@/components/RoomDetailView/ReviewBox.vue";
 export default {
   name: "PaymentView",
+  data() {
+    return {
+      isReviewBoxOpen: false,
+    };
+  },
+  components: {
+    ReviewBoxVue,
+  },
 };
 </script>
 <style></style>
