@@ -101,8 +101,8 @@
   </div>
 </template>
 <script>
-import TripCard from "../components/TripCard.vue";
-import PastCard from "../components/PastCard.vue";
+import TripCard from "../components/card/TripCard.vue";
+import PastCard from "../components/card/PastCard.vue";
 
 export default {
   name: "ReservationListView",

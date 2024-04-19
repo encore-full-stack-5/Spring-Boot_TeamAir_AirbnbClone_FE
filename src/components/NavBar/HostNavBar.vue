@@ -7,11 +7,11 @@
             />
         </svg>
         <div class="navMenu">
-            <div>투데이</div>
-            <div>달력</div>
-            <div>숙소</div>
-            <div>메시지</div>
-            <div>메뉴</div>
+            <div id="today" @click="RouteTab('/hosting')">투데이</div>
+            <div id="calender" @click="Alert('구현되지 않았습니다.')">달력</div>
+            <div id="room" @click="RouteTab('/hosting/listings')">숙소</div>
+            <div id="msg" @click="Alert('구현되지 않았습니다.')">메시지</div>
+            <div id="menu" @click="Alert('구현되지 않았습니다.')">메뉴</div>
         </div>
         <img class="profileIcon" src="" alt="">
     </div>
@@ -19,17 +19,30 @@
 <script>
 export default {
     name: "HostNavBar",
-    components: {
+    props: {
+      active: String,
     },
-    data(){
-        return{
-        }
+    mounted() {
+        this.ActiveNavBar(this.active)
+    },
+    methods: {
+        ActiveNavBar(e) {
+            const tab = document.getElementById(e);
+            // tap.style.borderBottom ="2px solid black";
+            tab.style.setProperty('--under-bar', "2px solid black");
+        },
+        Alert(s){
+            alert(s);
+        },
+        RouteTab(p) {
+            this.$router.push({ path: p })
+        },
     }
 }
 </script>
 <style>
 .navBar {
-    border: solid 1px black;
+    border-bottom: solid 1px lightgray;
     height: 70px;
     padding-left: 20px;
     padding-right: 30px;
@@ -49,15 +62,19 @@ export default {
 .navMenu > * {
     height: 36px;
     width: 70px;
-    border-radius: 50vi;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    font-size: 11pt;
     font-weight: bold;
+    border-bottom: 2px solid white;
+    border-bottom: var(--under-bar);
     /* transition: background-color 0.5s; */
 }
 .navMenu > *:hover{
+    border-radius: 50vi;
+    border-bottom: 2px solid white;
     background-color: whitesmoke;
 }
 .profileIcon{

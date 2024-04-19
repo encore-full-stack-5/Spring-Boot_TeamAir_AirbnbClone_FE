@@ -22,8 +22,17 @@
             />
           </div>
           <div>
-            <button type="submit" class="w3-button w3-green w3-round">
+            <button
+              type="submit"
+              class="w3-button w3-green w3-round"
+              @click="RouteTab('/')"
+            >
               Login
+            </button>
+          </div>
+          <div>
+            <button type="submit" class="w3-button w3-green w3-round">
+              Signup
             </button>
           </div>
         </form>
@@ -34,6 +43,7 @@
 
 <script>
 export default {
+  name: "LoginView",
   data() {
     return {
       user_id: "",
@@ -53,6 +63,9 @@ export default {
       }
 
       alert("로그인 되었습니다.");
+    },
+    RouteTab(p) {
+      this.$router.push({ path: p });
     },
   },
 };

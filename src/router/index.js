@@ -1,12 +1,18 @@
-import HostMainView from "@/views/HostMainView.vue";
-import HostingListView from "@/views/HostingListView.vue";
-import HostingNewRoomView from "@/views/HostingNewRoomView.vue";
+import HostMainView from "@/views/hostViews/HostMainView.vue";
+import HostingListView from "@/views/hostViews/HostingListView.vue";
+import HostingNewRoomView from "@/views/hostViews/HostingNewRoomView.vue";
 import { createWebHistory, createRouter } from "vue-router";
 import LoginView from "../views/LoginView";
 import ReservationListView from "../views/ReservationListView";
-import WishListView from "../views/WishListView";
+import WishListView from "../views/WishViews/WishListView";
+import WishDetailView from "../views/WishViews/WishDetailView";
+import MainView from "../views/MainView";
 
 const routes = [
+  {
+    path: "/",
+    component: MainView,
+  },
   {
     path: "/hosting",
     component: HostMainView,
@@ -30,6 +36,10 @@ const routes = [
   {
     path: "/wishlist",
     component: WishListView,
+  },
+  {
+    path: "/wishdetail",
+    component: WishDetailView,
   },
 ];
 const router = createRouter({
