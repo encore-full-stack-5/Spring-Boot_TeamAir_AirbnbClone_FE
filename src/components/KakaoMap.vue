@@ -48,9 +48,9 @@ export default {
     }
   },
   methods: {
-    initSize(is = this.isVisible) {
+    initSize() {
       const container = document.getElementById("map");
-      if (is) {
+      if (this.isVisible) {
         container.style.width = `${this.width}px`;
         container.style.height = `${this.height}px`;
       } else {
@@ -63,7 +63,7 @@ export default {
     initMap() {
       const container = document.getElementById("map");
       const options = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667),
+        center: new kakao.maps.LatLng(37.74913611, 128.8784972),
         level: 3,
       };
 
@@ -72,12 +72,12 @@ export default {
       this.location.length > 0 && this.displayMarker();
     },
 
-    displayMarker(l = this.location) {
+    displayMarker() {
       // 마커 초기화
       if (this.marker != null) this.marker = null;
 
       // 마커 하나 설정
-      const position = new kakao.maps.LatLng(...l);
+      const position = new kakao.maps.LatLng(...this.location);
       this.marker = new kakao.maps.Marker({ map: toRaw(this.map), position });
 
       // 마커들의 중심 위치로 지도 위치 및 범위 재설정
@@ -94,7 +94,5 @@ export default {
 #map {
   width: 10px;
   height: 10px;
-  display: flex;
-  flex-direction: column;
 }
 </style>

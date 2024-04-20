@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="leftbox"></div>
-
+    <div class="xbutton" style="margin-top: 20px">
+      <button style="float: Right" @click="$emit('someEvent')">X</button>
+    </div>
     <div class="rightbox">
       <div class="firstline">
         <img src="" alt="" />
@@ -17,14 +19,14 @@
             >
               Review
             </button>
-            <ReviewBoxVue
+            <ReviewBox
               v-show="this.isReviewBoxOpen"
               @some-event="
                 () => {
                   this.isReviewBoxOpen = !this.isReviewBoxOpen;
                 }
               "
-            ></ReviewBoxVue>
+            ></ReviewBox>
           </div>
           <div>
             <h4>{{ "대여 공간" }}</h4>
@@ -47,7 +49,7 @@
   </div>
 </template>
 <script>
-import ReviewBoxVue from "@/components/RoomDetailView/ReviewBox.vue";
+import ReviewBox from "@/components/RoomDetailView/ReviewBox.vue";
 export default {
   name: "PaymentView",
   data() {
@@ -56,7 +58,7 @@ export default {
     };
   },
   components: {
-    ReviewBoxVue,
+    ReviewBox,
   },
 };
 </script>
