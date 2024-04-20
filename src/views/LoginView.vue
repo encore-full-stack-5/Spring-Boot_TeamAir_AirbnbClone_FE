@@ -1,39 +1,31 @@
 <template>
-  <div>
-    <div style="text-align: center">
-      <h2>Log In</h2>
+  <div class="login-container">
+    <div style="text-align: center" class="login-box">
+      <h2 class="login-title">Team Air</h2>
       <div id="loginForm">
         <form @submit.prevent="fnLogin">
           <div>
             <input
               class="w3-input"
               name="uid"
-              placeholder="Enter your ID"
-              v-model="user_id"
+              placeholder="아이디"
+              v-model="userId"
             />
           </div>
           <div>
             <input
               name="password"
               class="w3-input"
-              placeholder="Enter your password"
-              v-model="user_pw"
+              placeholder="비민번호"
+              v-model="password"
               type="password"
             />
           </div>
           <div>
-            <button
-              type="submit"
-              class="w3-button w3-green w3-round"
-              @click="RouteTab('/')"
-            >
-              Login
-            </button>
+            <button type="submit" class="login-button">Login</button>
           </div>
           <div>
-            <button type="submit" class="w3-button w3-green w3-round">
-              Signup
-            </button>
+            <button class="login-button" @click="goToSignup">Signup</button>
           </div>
         </form>
       </div>
@@ -46,34 +38,81 @@ export default {
   name: "LoginView",
   data() {
     return {
-      user_id: "",
-      user_pw: "",
+      userId: "",
+      password: "",
     };
   },
   methods: {
     fnLogin() {
-      if (this.user_id === "") {
+      if (this.userId === "") {
         alert("ID를 입력하세요.");
         return;
       }
 
-      if (this.user_pw === "") {
+      if (this.password === "") {
         alert("비밀번호를 입력하세요.");
         return;
       }
 
       alert("로그인 되었습니다.");
+      this.$router.push("/");
     },
-    RouteTab(p) {
-      this.$router.push({ path: p });
+    goToSignup() {
+      this.$router.push("/signup");
     },
   },
 };
 </script>
 
 <style>
-#loginForm {
-  width: 500px;
-  margin: auto;
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 로그인 컨테이너 */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* 로그인 박스 */
+.login-box {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* 로그인 제목 */
+.login-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* 로그인 버튼 */
+.login-button {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 20px;
+  background-color: #4285f4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* 로그인 버튼 호버 효과 */
+.login-button:hover {
+  background-color: #357ae8;
 }
 </style>

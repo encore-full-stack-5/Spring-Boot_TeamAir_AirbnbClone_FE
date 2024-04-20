@@ -7,6 +7,7 @@ import ReservationListView from "../views/ReservationListView";
 import WishListView from "../views/WishViews/WishListView";
 import WishDetailView from "../views/WishViews/WishDetailView";
 import MainView from "../views/MainView";
+import SignupView from "../views/SignupView";
 
 const routes = [
   {
@@ -28,6 +29,10 @@ const routes = [
   {
     path: "/login",
     component: LoginView,
+  },
+  {
+    path: "/signup",
+    component: SignupView,
   },
   {
     path: "/reservation",
