@@ -4,22 +4,45 @@
       <button style="float: Right" @click="$emit('someEvent')">X</button>
     </div>
     <div class="contentbox">
-      <div class="star">
-        <div class="bigstar">
-          <h1>★ {{ "4.93" }}</h1>
-        </div>
-        <div class="totalscorebox">
-          <h5>전체 평점</h5>
-          <div class="scoreline">
-            <p>5</p>
-            <div></div>
+      <div class="ReviewBoxs">
+        <div class="wings">
+          <img src="@/assets/wingL.jpg" alt="" />
+          <div>
+            <h1>{{ "4.99" }}</h1>
           </div>
+          <img class="wingR" src="@/assets/wingR.jpg" alt="" />
         </div>
 
-        <div class="scoreforcategory">
-          <img src="" alt="" />
-          <div>청결도</div>
-          <div>{{ 5.0 }}</div>
+        <div class="Reviewtitle">
+          <div class="Cleanliness">
+            <div>청결도</div>
+            <div>{{ "5.0" }}</div>
+            <img src="@/assets/cleaner.jpg " alt="" />
+          </div>
+          <hr />
+          <div class="check">
+            <div>정확도</div>
+            <div>{{ "5.0" }}</div>
+            <img src="@/assets/check.jpg " alt="" />
+          </div>
+          <hr />
+          <div class="checkin">
+            <div>체크인</div>
+            <div>{{ "5.0" }}</div>
+            <img src="@/assets/checkin.jpg " alt="" />
+          </div>
+          <hr />
+          <div class="Message">
+            <div>의사소통</div>
+            <div>{{ "4.9" }}</div>
+            <img src="@/assets/Message.jpg " alt="" />
+          </div>
+          <hr />
+          <div class="Price">
+            <div>가격 대비 만족도</div>
+            <div>{{ "4.9" }}</div>
+            <img src="@/assets/Price.jpg " alt="" />
+          </div>
         </div>
       </div>
 
@@ -65,6 +88,7 @@ export default {
   position: static;
   top: 10%;
   left: 10%;
-  background-color: aqua;
+  background-color: white;
+  align-content: center;
 }
 </style>
