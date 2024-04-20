@@ -49,7 +49,7 @@
       <div class="reviewbox">
         <div class="first line">
           <div>후기 150개</div>
-          <button>최신순</button>
+          <!-- <button>최신순</button> -->
         </div>
         <div class="second line">
           <div>여기 검색 박스</div>
@@ -66,7 +66,142 @@
             <div>{{ "★★★★★" }}</div>
           </div>
           <div class="text">
-            <div>{{ "리뷰내용" }}</div>
+            <div>
+              <div>
+                <div class="names">
+                  <img src="@/assets/userprofil.jpg" alt="" />
+                  {{ "아진" }}
+                  <br />
+                  {{ "한국" }}
+                </div>
+              </div>
+
+              <div>{{ "★★★★★" }} {{ "2024년 1월" }}</div>
+              <div>
+                {{
+                  "한적한 곳에 위치했고 숙소와 식사 기대 이상이었어요. 커플 가족여행 모두 좋을 것 같아요. 여름에는 옆 계곡도 즐길 수 있다고 하네요."
+                }}
+              </div>
+              <div>
+                <div>
+                  <div class="names">
+                    <img src="@/assets/userprofil.jpg" alt="" />
+                    {{ "아진" }}
+                    <br />
+                    {{ "한국" }}
+                  </div>
+                </div>
+
+                <div>{{ "★★★★★" }} {{ "2024년 1월" }}</div>
+                <div>
+                  {{
+                    "한적한 곳에 위치했고 숙소와 식사 기대 이상이었어요. 커플 가족여행 모두 좋을 것 같아요. 여름에는 옆 계곡도 즐길 수 있다고 하네요."
+                  }}
+                </div>
+              </div>
+              <div>
+                <div>
+                  <div class="names">
+                    <img src="@/assets/userprofil.jpg" alt="" />
+                    {{ "아진" }}
+                    <br />
+                    {{ "한국" }}
+                  </div>
+                </div>
+
+                <div>{{ "★★★★★" }} {{ "2024년 1월" }}</div>
+                <div>
+                  {{
+                    "한적한 곳에 위치했고 숙소와 식사 기대 이상이었어요. 커플 가족여행 모두 좋을 것 같아요. 여름에는 옆 계곡도 즐길 수 있다고 하네요."
+                  }}
+                </div>
+              </div>
+              <div>
+                <div>
+                  <div class="names">
+                    <img src="@/assets/userprofil.jpg" alt="" />
+                    {{ "아진" }}
+                    <br />
+                    {{ "한국" }}
+                  </div>
+                </div>
+
+                <div>{{ "★★★★★" }} {{ "2024년 1월" }}</div>
+                <div>
+                  {{
+                    "한적한 곳에 위치했고 숙소와 식사 기대 이상이었어요. 커플 가족여행 모두 좋을 것 같아요. 여름에는 옆 계곡도 즐길 수 있다고 하네요."
+                  }}
+                </div>
+              </div>
+              <div>
+                <div>
+                  <div class="names">
+                    <img src="@/assets/userprofil.jpg" alt="" />
+                    {{ "아진" }}
+                    <br />
+                    {{ "한국" }}
+                  </div>
+                </div>
+
+                <div>{{ "★★★★★" }} {{ "2024년 1월" }}</div>
+                <div>
+                  {{
+                    "한적한 곳에 위치했고 숙소와 식사 기대 이상이었어요. 커플 가족여행 모두 좋을 것 같아요. 여름에는 옆 계곡도 즐길 수 있다고 하네요."
+                  }}
+                </div>
+              </div>
+              <div>
+                <div>
+                  <div class="names">
+                    <img src="@/assets/userprofil.jpg" alt="" />
+                    {{ "아진" }}
+                    <br />
+                    {{ "한국" }}
+                  </div>
+                </div>
+
+                <div>{{ "★★★★★" }} {{ "2024년 1월" }}</div>
+                <div>
+                  {{
+                    "한적한 곳에 위치했고 숙소와 식사 기대 이상이었어요. 커플 가족여행 모두 좋을 것 같아요. 여름에는 옆 계곡도 즐길 수 있다고 하네요."
+                  }}
+                </div>
+              </div>
+              <div>
+                <div>
+                  <div class="names">
+                    <img src="@/assets/userprofil.jpg" alt="" />
+                    {{ "아진" }}
+                    <br />
+                    {{ "한국" }}
+                  </div>
+                </div>
+
+                <div>{{ "★★★★★" }} {{ "2024년 1월" }}</div>
+                <div>
+                  {{
+                    "한적한 곳에 위치했고 숙소와 식사 기대 이상이었어요. 커플 가족여행 모두 좋을 것 같아요. 여름에는 옆 계곡도 즐길 수 있다고 하네요."
+                  }}
+                </div>
+              </div>
+              <div>
+                <div>
+                  <div class="names">
+                    <img src="@/assets/userprofil.jpg" alt="" />
+                    {{ "아진" }}
+                    <br />
+                    {{ "한국" }}
+                  </div>
+                </div>
+
+                <div>{{ "★★★★★" }} {{ "2024년 1월" }}</div>
+                <div>
+                  {{
+                    "한적한 곳에 위치했고 숙소와 식사 기대 이상이었어요. 커플 가족여행 모두 좋을 것 같아요. 여름에는 옆 계곡도 즐길 수 있다고 하네요."
+                  }}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -90,5 +225,10 @@ export default {
   left: 10%;
   background-color: white;
   align-content: center;
+}
+.contentbox {
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 500px; /* Set maximum height for scrollbar to appear */
+  /* Adjust max-height as needed */
 }
 </style>
