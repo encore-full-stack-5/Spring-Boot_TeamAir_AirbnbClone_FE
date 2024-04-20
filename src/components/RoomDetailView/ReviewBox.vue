@@ -62,7 +62,7 @@ export default {
 
 <style>
 .mainbox {
-  position: absolute;
+  position: static;
   top: 10%;
   left: 10%;
   background-color: aqua;
