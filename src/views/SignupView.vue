@@ -1,51 +1,56 @@
 <template>
-  <div class="signup-container">
-    <div class="signup-box">
-      <h2 class="signup-title">회원가입</h2>
-      <form @submit.prevent="register">
-        <div>
-          <input
-            name="email"
-            class="w3-input"
-            placeholder="이메일을 입력하세요"
-            v-model="email"
-            type="email"
-          />
-        </div>
-        <div>
-          <input
-            name="password"
-            class="w3-input"
-            placeholder="비밀번호를 입력하세요"
-            v-model="password"
-            type="password"
-          />
-        </div>
-        <div>
-          <input
-            class="w3-input"
-            name="username"
-            placeholder="사용자 이름을 입력하세요"
-            v-model="username"
-          />
-        </div>
-        <div>
-          <input
-            name="nickname"
-            class="w3-input"
-            placeholder="닉네임을 입력하세요"
-            v-model="nickname"
-            type="nickname"
-          />
-        </div>
-        <div>
-          <button type="submit" class="signup-button">가입</button>
-        </div>
-      </form>
+  <div>
+    <GuestNavBar />
+    <div class="signup-container">
+      <div class="signup-box">
+        <h2 class="signup-title">회원가입</h2>
+        <form @submit.prevent="register">
+          <div>
+            <input
+              name="email"
+              class="w3-input"
+              placeholder="이메일을 입력하세요"
+              v-model="email"
+              type="email"
+            />
+          </div>
+          <div>
+            <input
+              name="password"
+              class="w3-input"
+              placeholder="비밀번호를 입력하세요"
+              v-model="password"
+              type="password"
+            />
+          </div>
+          <div>
+            <input
+              class="w3-input"
+              name="username"
+              placeholder="사용자 이름을 입력하세요"
+              v-model="username"
+            />
+          </div>
+          <div>
+            <input
+              name="nickname"
+              class="w3-input"
+              placeholder="닉네임을 입력하세요"
+              v-model="nickname"
+              type="nickname"
+            />
+          </div>
+          <div>
+            <button type="submit" class="signup-button">가입</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </template>
 <script>
+import GuestNavBar from "../components/NavBar/GuestNavBar.vue";
+
 export default {
   data() {
     return {
@@ -85,6 +90,9 @@ export default {
         console.error("네트워크 오류:", error);
       }
     },
+  },
+  components: {
+    GuestNavBar,
   },
 };
 </script>

@@ -6,13 +6,24 @@ import LoginView from "../views/LoginView";
 import ReservationListView from "../views/ReservationListView";
 import WishListView from "../views/WishViews/WishListView";
 import WishDetailView from "../views/WishViews/WishDetailView";
-import MainView from "../views/MainView";
 import SignupView from "../views/SignupView";
+import MainView from "../views/MainView.vue";
+import RoomDetailView from "../views/RoomDetailView.vue";
+import SearchView from "../views/SearchView.vue";
+import UserInfoView from "../views/UserInfoView.vue";
 
 const routes = [
   {
     path: "/",
     component: MainView,
+  },
+  {
+    path: "/search/city=:city&checkIn=:checkIn&checkOut=:checkOut&guestNum=:guestNum",
+    component: SearchView,
+  },
+  {
+    path: "/personal-info",
+    component: UserInfoView,
   },
   {
     path: "/hosting",
@@ -45,6 +56,10 @@ const routes = [
   {
     path: "/wishdetail",
     component: WishDetailView,
+  },
+  {
+    path: "/roomDetail/:id",
+    component: RoomDetailView,
   },
 ];
 const router = createRouter({

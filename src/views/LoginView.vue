@@ -1,39 +1,44 @@
 <template>
-  <div class="login-container">
-    <div style="text-align: center" class="login-box">
-      <h2 class="login-title">Team Air</h2>
-      <div id="loginForm">
-        <form @submit.prevent="fnLogin">
-          <div>
-            <input
-              class="w3-input"
-              name="uid"
-              placeholder="아이디"
-              v-model="userId"
-            />
-          </div>
-          <div>
-            <input
-              name="password"
-              class="w3-input"
-              placeholder="비민번호"
-              v-model="password"
-              type="password"
-            />
-          </div>
-          <div>
-            <button type="submit" class="login-button">Login</button>
-          </div>
-          <div>
-            <button class="login-button" @click="goToSignup">Signup</button>
-          </div>
-        </form>
+  <div>
+    <GuestNavBar />
+    <div class="login-container">
+      <div style="text-align: center" class="login-box">
+        <h2 class="login-title">Team Air</h2>
+        <div id="loginForm">
+          <form @submit.prevent="fnLogin">
+            <div>
+              <input
+                class="w3-input"
+                name="uid"
+                placeholder="아이디"
+                v-model="userId"
+              />
+            </div>
+            <div>
+              <input
+                name="password"
+                class="w3-input"
+                placeholder="비민번호"
+                v-model="password"
+                type="password"
+              />
+            </div>
+            <div>
+              <button type="submit" class="login-button">Login</button>
+            </div>
+            <div>
+              <button class="login-button" @click="goToSignup">Signup</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import GuestNavBar from "../components/NavBar/GuestNavBar.vue";
+
 export default {
   name: "LoginView",
   data() {
@@ -60,6 +65,9 @@ export default {
     goToSignup() {
       this.$router.push("/signup");
     },
+  },
+  components: {
+    GuestNavBar,
   },
 };
 </script>
