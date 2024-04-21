@@ -936,11 +936,6 @@ export default {
 </script>
 <style>
 .roomcard-container{
-    /* width: 90%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between; */
     width: 90%;
     margin-inline: auto;
     display: grid;
