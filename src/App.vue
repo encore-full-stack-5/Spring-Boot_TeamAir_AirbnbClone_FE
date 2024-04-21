@@ -1,17 +1,14 @@
 <template>
   <div>
-    <!-- <GuestNavBar/>-->
     <RouterView></RouterView>
   </div>
 </template>
 
 <script>
-// import GuestNavBar from './components/NavBar/GuestNavBar.vue'
 
 export default {
   name: 'App',
   components: {
-    // GuestNavBar
   }
 }
 </script>
