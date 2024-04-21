@@ -30,13 +30,16 @@
                 <p>우편 번호</p>
                 <input id="zipNum" 
                     @click="findAddr"
+                    :value="zipNumValue"
                     class="roomInfoInputSmall" type="text" readonly>
                 <p>기본 주소</p>
                 <input id="basicAddr" 
                     @click="findAddr"
+                    :value="basicAddrValue"
                     class="roomInfoInputLong" type="text" readonly>
                 <p>상세 주소</p>
                 <input id="detailAddr" 
+                    :value="detailAddrValue"
                     class="roomInfoInputLong" type="text">
             </div>
             <!-- <hr> -->
@@ -194,7 +197,7 @@
 
 <script>
 import NavBar from '../../components/NavBar/HostNavBar.vue'
-import CheckBox from '../../components/HostCheckBox.vue'
+import CheckBox from '../../components/host/HostCheckBox.vue'
 import KakaoMap from '../../components/KakaoMap.vue'
 
 export default {
@@ -209,6 +212,23 @@ export default {
         location: [],
         mapIsVisible: false,
       };
+    },
+    props: {
+        // roomStructureValue: {},
+        // roomPrivacyTypeValue: {},
+        zipNumValue: {
+            type: String,
+            default: null
+        },
+        basicAddrValue: {
+            type: String,
+            default: null
+        },
+        detailAddrValue: {
+            type: String,
+            default: null
+        },
+        // 지도 init
     },
     mounted() {
         if (!(window.kakao && window.kakao.maps)) {
