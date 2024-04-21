@@ -2,6 +2,7 @@
     <div class="checkboxDiv">
         <input type="checkbox" 
             name="roomAmenities" 
+            :checked="checked"
             :id="'check_' + name"
             :value="name">
         <label :for="'check_' + name">{{ value }}</label>
@@ -13,7 +14,11 @@
     name: 'HostCheckbox',
     props: {
       name: String,
-      value: String
+      value: String,
+      checked: {
+        type: Boolean,
+        default: false
+      }
     }
   }
   </script>
