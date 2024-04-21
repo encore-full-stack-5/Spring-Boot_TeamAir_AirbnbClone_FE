@@ -1,33 +1,16 @@
 <template>
   <div>
     <GuestNavBar />
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <RouterLink to="/PaymentView">결제 페이지 링크</RouterLink>
-    <RouterLink to="/RoomDetailView">방 정보 페이지 링크</RouterLink>
     <RouterView></RouterView>
   </div>
 </template>
 
 <script>
-import GuestNavBar from "./components/NavBar/GuestNavBar.vue";
-
 export default {
   name: "App",
-  components: {
-    GuestNavBar,
-  },
 };
 </script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  font-size: 20px;
-}
 .icon {
   color: rgb(255, 56, 92) !important;
   cursor: pointer;
