@@ -25,7 +25,15 @@
             </div>
             <div class="listMyRoom">
                 <!-- 룸 박스 -->
-                <div class="roomBox">
+                <RoomBox 
+                    loacationName="붓싼"
+                    roomName="개쩌는 짱짱 숙소"
+                    rating="4.99"
+                    infoText1="붓싼 앞바다 속 1km"
+                    infoText2="4.15 ~ 4.18"
+                    price="654,321"
+                />
+                <!-- <div class="roomBox">
                     <img src="" alt="">
                     <div class="roomDescHead">
                         <p>{{"지역" + " " + "숙소이름@@@@@@@@@@@@@@@@@@@"}}</p>
@@ -39,25 +47,27 @@
                         <P>"</P>
                     </div>
                     <p>￦{{"123,456"}} /박</p>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 </template>
 <script>
-    import NavBar from '../../components/NavBar/HostNavBar.vue'
+import NavBar from '../../components/NavBar/HostNavBar.vue'
+import RoomBox from '../../components/host/HostRoom.vue'
 
-    export default {
-        name: "HostingListView",
-        components: {
-            NavBar
-        },
-        methods: {
-            newRoom() {
-                this.$router.push({ path: '/become-a-host' })
-            }
+export default {
+    name: "HostingListView",
+    components: {
+        NavBar,
+        RoomBox,
+    },
+    methods: {
+        newRoom() {
+            this.$router.push({ path: '/become-a-host' })
         }
     }
+}
 </script>
 <style>
 .listBox {
@@ -93,56 +103,5 @@
 }
 .listMyRoom {
     width: calc(26vw + 1px)
-}
-.roomBox {
-    display: flex;
-    flex-direction: column;
-    transition-duration: 0.7s;
-    transition-timing-function: ease-in-out;
-}
-.roomBox:hover {
-    transform: rotate(360deg);
-}
-.roomBox img{
-    width: 26vw;
-    height: 26vw;
-    border-radius: 10px;
-    border: 1px solid lightgray;
-    background-color: lightgray;
-}
-.roomBox p {
-    color: gray;
-    font-size: 11pt;
-    margin: 0px;
-}
-.roomDescHead {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.roomDescHead p {
-    color: black;
-    font-size: 12pt;
-    margin-top: 8px;
-}
-.roomDescHead p:nth-child(1) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.guestComment {
-    display: flex;
-    flex-direction: row;
-    white-space: nowrap;
-}
-.guestComment :nth-child(2) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: black;
-}
-.roomBox > :nth-last-child(1){
-    color: black;
-    margin-top: 4px;
 }
 </style>
