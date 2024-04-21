@@ -1,6 +1,6 @@
-import HostMainView from "@/views/HostMainView.vue";
-import HostingListView from "@/views/HostingListView.vue";
-import HostingNewRoomView from "@/views/HostingNewRoomView.vue";
+import HostMainView from "@/views/hostViews/HostMainView.vue";
+import HostingListView from "@/views/hostViews/HostingListView.vue";
+import HostingNewRoomView from "@/views/hostViews/HostingNewRoomView.vue";
 import { createWebHistory, createRouter } from "vue-router";
 import LoginView from "../views/LoginView";
 import MainView from "../views/MainView.vue";
