@@ -2,6 +2,8 @@ import HostMainView from "@/views/hostViews/HostMainView.vue";
 import HostingListView from "@/views/hostViews/HostingListView.vue";
 import HostingNewRoomView from "@/views/hostViews/HostingNewRoomView.vue";
 import { createWebHistory, createRouter } from "vue-router";
+import PaymentView from "../views/PaymentView.vue";
+import RoomDetailView from "../views/RoomDetailView.vue";
 import LoginView from "../views/LoginView";
 import ReservationListView from "../views/ReservationListView";
 import WishListView from "../views/WishViews/WishListView";
@@ -16,6 +18,10 @@ const routes = [
   {
     path: "/",
     component: MainView,
+  },
+  {
+    path: "/login",
+    component: LoginView,
   },
   {
     path: "/search/city=:city&checkIn=:checkIn&checkOut=:checkOut&guestNum=:guestNum",
@@ -38,8 +44,12 @@ const routes = [
     component: HostingNewRoomView,
   },
   {
-    path: "/login",
-    component: LoginView,
+    path: "/PaymentView",
+    component: PaymentView,
+  },
+  {
+    path: "/RoomDetailView",
+    component: RoomDetailView,
   },
   {
     path: "/signup",
