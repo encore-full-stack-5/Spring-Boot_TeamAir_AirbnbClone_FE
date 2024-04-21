@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+        위시리스트
     </div>
 </template>
 <script>
