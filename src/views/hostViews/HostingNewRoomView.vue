@@ -310,10 +310,10 @@ export default {
         document.getElementById("roomDesc").textContent = data.desc;
         document.getElementsByName("reserveType")[data.reserveOption-1].setAttribute("checked", "true");
         document.getElementById("roomPrice").setAttribute("value", data.price);
-        data.amenity.forEach(e => {
+        data.amenity&&data.amenity.forEach(e => {
           document.getElementById("check_" + e.name)&&document.getElementById("check_" + e.name).setAttribute("checked", "true");
         });
-        data.uniqueAmenity.forEach(e => {
+        data.uniqueAmenity&&data.uniqueAmenity.forEach(e => {
           document.getElementById("check_" + e.name)&&document.getElementById("check_" + e.name).setAttribute("checked", "true");
         });
         document.getElementById("check_fire_alarm").setAttribute("checked", data.safetySupply.fireAlarm);
