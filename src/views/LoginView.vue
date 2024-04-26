@@ -37,7 +37,9 @@
 </template>
 
 <script>
+import axios from 'axios';
 import GuestNavBar from "../components/NavBar/GuestNavBar.vue";
+import { mapActions } from 'vuex';
 
 export default {
   name: "LoginView",
@@ -48,6 +50,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions({vuexLogin: 'login'}),
     fnLogin() {
       if (this.userId === "") {
         alert("ID를 입력하세요.");
@@ -58,13 +61,31 @@ export default {
         alert("비밀번호를 입력하세요.");
         return;
       }
-
+      this.login()
       alert("로그인 되었습니다.");
       this.$router.push("/");
     },
     goToSignup() {
       this.$router.push("/signup");
     },
+    login(){
+      axios.post("http://192.168.56.1:9000/api/v1/user/login",{
+        email: this.userId,
+        password: this.password
+      })
+        .then((res) => {
+          console.log("aaaaa");
+          console.log(res.data);
+          this.vuexLogin(res.data.token);
+          // localStorage.setItem("token", res.data.token)
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  },
+  components: {
+    GuestNavBar,
   },
   components: {
     GuestNavBar,
