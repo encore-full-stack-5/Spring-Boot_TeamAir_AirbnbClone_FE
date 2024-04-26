@@ -25,19 +25,19 @@
           </div>
           <div>
             <input
+              name="password"
               class="w3-input"
-              name="username"
-              placeholder="사용자 이름을 입력하세요"
-              v-model="username"
+              placeholder="비밀번호 확인"
+              v-model="passwordCheck"
+              type="password"
             />
           </div>
           <div>
             <input
-              name="nickname"
               class="w3-input"
-              placeholder="닉네임을 입력하세요"
-              v-model="nickname"
-              type="nickname"
+              name="username"
+              placeholder="사용자 이름을 입력하세요"
+              v-model="username"
             />
           </div>
           <div>
@@ -49,6 +49,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios';
 import GuestNavBar from "../components/NavBar/GuestNavBar.vue";
 
 export default {
@@ -56,12 +57,29 @@ export default {
     return {
       email: "",
       password: "",
+      passwordCheck: "",
       username: "",
-      nickname: "",
     };
   },
   methods: {
     async register() {
+      if(this.email == "") alert("아이디를 입력하세요");
+      else if(this.password == "") alert("비밀번호를 입력하세요");
+      else if(this.password != this.passwordCheck) alert("비밀밀번호를 확인해주세요");
+      else if(this.username == "") alert("이름을 입력하세요");
+      else {
+          await axios.post("http://192.168.56.1:9000/api/v1/user/signup",{
+            email: this.email,
+            password: this.password,
+            userName: this.username
+          })
+          .then(() => {
+            alert("성공적으로 회원가입 하였습니다.");
+          })
+          .catch((err) => {
+            console.log(err);
+          })
+      }
       try {
         // const response = await fetch("http://example.com/api/register", {
         //   method: "POST",
