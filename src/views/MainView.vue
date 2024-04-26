@@ -1,5 +1,6 @@
 <template>
   <div>
+    <GuestNavBarVue></GuestNavBarVue>
     <hr />
     <div class="roomcard-container">
       <RouterLink
@@ -26,6 +27,7 @@
   </div>
 </template>
 <script>
+import GuestNavBarVue from '@/components/NavBar/GuestNavBar.vue';
 export default {
   name: "MainView",
   data() {
@@ -941,6 +943,9 @@ export default {
         ? this.roomList
         : this.roomList.slice(0, this.showRoomsNum);
     },
+  },
+  components: {
+    GuestNavBarVue,
   },
 };
 </script>

@@ -3,7 +3,6 @@ import HostingListView from "@/views/hostViews/HostingListView.vue";
 import HostingNewRoomView from "@/views/hostViews/HostingNewRoomView.vue";
 import { createWebHistory, createRouter } from "vue-router";
 import PaymentView from "../views/PaymentView.vue";
-import RoomDetailView from "../views/RoomDetailView.vue";
 import LoginView from "../views/LoginView";
 import ReservationListView from "../views/ReservationListView";
 import WishListView from "../views/WishViews/WishListView";
