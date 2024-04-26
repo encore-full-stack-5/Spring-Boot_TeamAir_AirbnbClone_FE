@@ -1,5 +1,5 @@
 <template>
-    <div class="roomBox">
+    <div class="roomBox" @click="RouteRoom()">
         <img src="" alt="">
         <div class="roomDescHead">
             <p>{{loacationName + " " + roomName}}</p>
@@ -20,6 +20,10 @@
 export default {
 name: 'HostRoom',
 props: {
+    roomId: {
+        type: Number,
+        default: null
+    },
     loacationName: {
         type: String,
         default: null
@@ -43,6 +47,16 @@ props: {
     price: {
         type: String,
         default: null
+    },
+},
+methods: {
+    RouteRoom() {
+        this.$router.push({ 
+            path: '/become-a-host' ,
+            query: {
+                roomId: 21//this.roomId,
+            },
+        })
     },
 }
 }

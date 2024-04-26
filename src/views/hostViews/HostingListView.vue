@@ -26,6 +26,7 @@
             <div class="listMyRoom">
                 <!-- 룸 박스 -->
                 <RoomBox 
+                    roomID=21
                     loacationName="붓싼"
                     roomName="개쩌는 짱짱 숙소"
                     rating="4.99"
