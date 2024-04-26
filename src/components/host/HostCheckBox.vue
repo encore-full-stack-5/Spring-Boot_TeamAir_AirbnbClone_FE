@@ -1,8 +1,7 @@
 <template>
     <div class="checkboxDiv">
         <input type="checkbox" 
-            name="roomAmenities" 
-            :checked="checked"
+            :name="group" 
             :id="'check_' + name"
             :value="name">
         <label :for="'check_' + name">{{ value }}</label>
@@ -15,6 +14,7 @@
     props: {
       name: String,
       value: String,
+      group: String,
       checked: {
         type: Boolean,
         default: false

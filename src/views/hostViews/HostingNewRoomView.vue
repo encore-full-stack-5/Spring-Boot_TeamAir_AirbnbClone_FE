@@ -13,7 +13,7 @@
           <option value="555">이상한거</option>
         </select>
       </div>
-      <hr />
+      <hr className="hrLine" />
       <div class="roomInput">
         <!-- /become-a-host/{host_id}/privacy-type -->
         <p>숙소 유형</p>
@@ -23,7 +23,7 @@
           <option value="3">다인실</option>
         </select>
       </div>
-      <hr />
+      <hr className="hrLine" />
       <div class="roomInput">
         <!-- /become-a-host/{host_id}/location -->
         <p>주소 입력</p>
@@ -31,7 +31,6 @@
         <input
           id="zipNum"
           @click="findAddr"
-          :value="zipNumValue"
           class="roomInfoInputSmall"
           type="text"
           readonly
@@ -40,7 +39,6 @@
         <input
           id="basicAddr"
           @click="findAddr"
-          :value="basicAddrValue"
           class="roomInfoInputLong"
           type="text"
           readonly
@@ -48,7 +46,6 @@
         <p>상세 주소</p>
         <input
           id="detailAddr"
-          :value="detailAddrValue"
           class="roomInfoInputLong"
           type="text"
         />
@@ -79,7 +76,7 @@
           체크시 예약 하기 전에는 정확한 위치 대신 빨간 원을 보여줍니다.
         </p>
       </div>
-      <hr />
+      <hr className="hrLine" />
       <div class="roomInput">
         <!-- /become-a-host/{host_id}/floor-plan -->
         <p>기본 정보</p>
@@ -114,7 +111,7 @@
           <div>
             <p>욕실</p>
             <input
-              id="BathroomNum"
+              id="bathroomNum"
               class="roomInfoInputNum"
               type="number"
               value="1"
@@ -122,47 +119,47 @@
           </div>
         </div>
       </div>
-      <hr />
+      <hr className="hrLine" />
 
       <div class="roomInput">
         <!-- /become-a-host/{host_id}/amenities -->
         <p>편의시설 정보</p>
         <p style="margin-bottom: 0px; font-weight: bold">일반 편의시설</p>
         <div class="checkBoxArea">
-          <CheckBox name="wifi" value="Wi-Fi" />
-          <CheckBox name="tv" value="TV" />
-          <CheckBox name="kitchen" value="주방" />
-          <CheckBox name="washing_machine" value="세탁기" />
-          <CheckBox name="free_parking" value="건물 내 무료 주차" />
-          <CheckBox name="paid_parking" value="건물 부지 내 유료 주차" />
-          <CheckBox name="air_conditioner" value="에어컨" />
-          <CheckBox name="work_space" value="업무 전용 공간" />
+          <CheckBox group="amenity" name="Wi-Fi" value="Wi-Fi" />
+          <CheckBox group="amenity" name="TV" value="TV" />
+          <CheckBox group="amenity" name="주방" value="주방" />
+          <CheckBox group="amenity" name="세탁기" value="세탁기" />
+          <CheckBox group="amenity" name="건물 내 무료 주차" value="건물 내 무료 주차" />
+          <CheckBox group="amenity" name="건물 부지 내 유료 주차" value="건물 부지 내 유료 주차" />
+          <CheckBox group="amenity" name="에어컨" value="에어컨" />
+          <CheckBox group="amenity" name="업무 전용 공간" value="업무 전용 공간" />
         </div>
         <p style="margin-bottom: 0px; font-weight: bold">특별한 편의시설</p>
         <div class="checkBoxArea">
-          <CheckBox name="pool" value="수영장" />
-          <CheckBox name="spa" value="스파 욕조" />
-          <CheckBox name="patio" value="파티오" />
-          <CheckBox name="bbq_grill" value="BBQ 그릴" />
-          <CheckBox name="fire_fit" value="화로" />
-          <CheckBox name="pool_table" value="당구대" />
-          <CheckBox name="outside_dining_area" value="야외 식사 공간" />
-          <CheckBox name="piano" value="피아노" />
-          <CheckBox name="fitness" value="운동 기구" />
-          <CheckBox name="fireplace" value="실내 벽난로" />
-          <CheckBox name="near_lake" value="호수에 인접" />
-          <CheckBox name="near_beach" value="해변과 인접" />
-          <CheckBox name="outside_shower" value="야외 샤워 시설" />
+          <CheckBox group="uniqueAmenity" name="수영장" value="수영장" />
+          <CheckBox group="uniqueAmenity" name="스파 욕조" value="스파 욕조" />
+          <CheckBox group="uniqueAmenity" name="파티오" value="파티오" />
+          <CheckBox group="uniqueAmenity" name="BBQ 그릴" value="BBQ 그릴" />
+          <CheckBox group="uniqueAmenity" name="화로" value="화로" />
+          <CheckBox group="uniqueAmenity" name="당구대" value="당구대" />
+          <CheckBox group="uniqueAmenity" name="야외 식사 공간" value="야외 식사 공간" />
+          <CheckBox group="uniqueAmenity" name="피아노" value="피아노" />
+          <CheckBox group="uniqueAmenity" name="운동 기구" value="운동 기구" />
+          <CheckBox group="uniqueAmenity" name="실내 벽난로" value="실내 벽난로" />
+          <CheckBox group="uniqueAmenity" name="호수에 인접" value="호수에 인접" />
+          <CheckBox group="uniqueAmenity" name="해변과 인접" value="해변과 인접" />
+          <CheckBox group="uniqueAmenity" name="야외 샤워 시설" value="야외 샤워 시설" />
         </div>
         <p style="margin-bottom: 0px; font-weight: bold">안전시설</p>
         <div class="checkBoxArea">
-          <CheckBox name="fire_alarm" value="화재경보기" />
-          <CheckBox name="first_aid_kit" value="구급상자" />
-          <CheckBox name="extinguisher" value="소화기" />
-          <CheckBox name="co_alarm" value="일산화탄소 경보기" />
+          <CheckBox group="safetySupply" name="fire_alarm" value="화재경보기" />
+          <CheckBox group="safetySupply" name="first_aid_kit" value="구급상자" />
+          <CheckBox group="safetySupply" name="extinguisher" value="소화기" />
+          <CheckBox group="safetySupply" name="co_alarm" value="일산화탄소 경보기" />
         </div>
       </div>
-      <hr />
+      <hr className="hrLine" />
       <div class="roomInput">
         <!-- /become-a-host/{host_id}/photos -->
         <p>사진 추가</p>
@@ -172,17 +169,18 @@
           <img src="" alt="" />
         </div>
       </div>
-      <hr />
+      <hr className="hrLine" />
       <div class="roomInput">
         <!-- /become-a-host/{host_id}/title -->
         <p>숙소 이름</p>
         <input
+          id="roomName"
           class="roomInfoInputLong"
           type="text"
           placeholder="숙소 이름은 언제나 변경 가능합니다."
         />
       </div>
-      <hr />
+      <hr className="hrLine" />
       <!-- <div class="roomInput">
                 <p>태그 선택</p>
             </div>
@@ -191,12 +189,13 @@
         <!-- /become-a-host/{host_id}/description -->
         <p>숙소 설명</p>
         <textarea
+          id="roomDesc"
           class="roomInfoInputArea"
           wrap="hard"
           placeholder="숙소 설명은 언제나 변경 가능합니다."
         ></textarea>
       </div>
-      <hr />
+      <hr className="hrLine" />
 
       <div class="roomInput">
         <!-- /become-a-host/{host_id}/instant-book -->
@@ -212,15 +211,22 @@
           </div>
         </div>
       </div>
-      <hr />
+      <hr className="hrLine" />
       <div class="roomInput">
         <!-- /become-a-host/{host_id}/price -->
         <p>숙박 가격</p>
-        <input class="roomInfoInputSmall" type="num" placeholder="1박당 가격" />
+        <input 
+          id="roomPrice" 
+          class="roomInfoInputSmall" 
+          type="num" 
+          placeholder="1박당 가격" />
       </div>
-      <hr />
-      <div class="roomInput">
-        <button class="confirmRoom">숙소 추가하기</button>
+      <hr className="hrLine" />
+      <div v-if="this.$route.query.roomId" class="roomInput">
+        <button class="confirmRoom" @click="addRoomRequest()" >숙소 수정하기</button>
+      </div>
+      <div v-else class="roomInput">
+        <button class="confirmRoom" @click="editRoomRequest()" >숙소 추가하기</button>
       </div>
     </div>
     <div class="goTop" @click="gotoTop()">▲</div>
@@ -231,6 +237,7 @@
 import NavBar from "../../components/NavBar/HostNavBar.vue";
 import CheckBox from "../../components/host/HostCheckBox.vue";
 import KakaoMap from "../../components/KakaoMap.vue";
+import {getData, postData} from "../../api/axios.js"
 
 export default {
   name: "HostingNewRoomView",
@@ -243,6 +250,20 @@ export default {
     return {
       location: [],
       mapIsVisible: false,
+      roomId: null,
+      // roomStructure: null,
+      // roomPrivacyType: null,
+      // guestNum: null,
+      // bedroomNum: null,
+      // bedNum: null,
+      // BathroomNum: null,
+      // amenities: [],
+      // uniqueAmenities: [],
+      // safetySupply: [],
+      // roomName: null,
+      // roomDesc: null,
+      // reserveOpt: null,
+      // roomPrice: null,
     };
   },
   props: {
@@ -266,8 +287,37 @@ export default {
     if (!(window.kakao && window.kakao.maps)) {
       this.geocoderInit();
     }
+    this.defaultValueSet() 
   },
   methods: {
+    async defaultValueSet() {
+      if (!this.$route.query.roomId) return null;
+
+        this.roomId = this.$route.query.roomId;
+        const data = await getData("/room/" + this.roomId);
+        console.log(data);
+        document.getElementById("roomStructure").options[data.type].setAttribute("selected", "true");
+        // document.getElementById("roomPrivacyType").options[data.reserveOption].setAttribute("selected", "true");
+        document.getElementById("guestNum").setAttribute("value", data.maxPeople);
+        document.getElementById("bedroomNum").setAttribute("value", data.bedNum);
+        document.getElementById("bedNum").setAttribute("value", data.bedroomNum);
+        document.getElementById("bathroomNum").setAttribute("value", data.bathroomNum);
+        document.getElementById("roomName").setAttribute("value", data.name);
+        document.getElementById("roomDesc").textContent = data.desc;
+        document.getElementsByName("reserveType")[data.reserveOption-1].setAttribute("checked", "true");
+        document.getElementById("roomPrice").setAttribute("value", data.price);
+        data.amenity.forEach(e => {
+          document.getElementById("check_" + e.name)&&document.getElementById("check_" + e.name).setAttribute("checked", "true");
+        });
+        data.uniqueAmenity.forEach(e => {
+          document.getElementById("check_" + e.name)&&document.getElementById("check_" + e.name).setAttribute("checked", "true");
+        });
+        document.getElementById("check_fire_alarm").setAttribute("checked", data.safetySupply.fireAlarm);
+        document.getElementById("check_first_aid_kit").setAttribute("checked", data.safetySupply.aidKit);
+        document.getElementById("check_extinguisher").setAttribute("checked", data.safetySupply.extinguisher);
+        document.getElementById("check_co_alarm").setAttribute("checked", data.safetySupply.coAlarm);
+        this.location = [data.location.locationX, data.location.locationY];
+    }, 
     geocoderInit() {
       const geocoderScript = document.createElement("script");
       /* global kakao */
@@ -278,8 +328,7 @@ export default {
     findAddr() {
       new window.daum.Postcode({
         oncomplete: async (data) => {
-          document.getElementById("basicAddr").value =
-            data.roadAddress || data.jibunAddress;
+          document.getElementById("basicAddr").value = data.roadAddress || data.jibunAddress;
           document.getElementById("zipNum").value = data.zonecode;
 
           // find coordinates using by geocoder
@@ -320,6 +369,56 @@ export default {
         this.$refs.kakaomapRef.displayCircle(false);
       }
     },
+    packRoomData() {
+      let amenityList = [];
+      document.getElementsByName("amenity").forEach((e, i) => {
+        if(e.checked) amenityList.push(i+1);
+      });
+      let uniqueAmenityList = [];
+      document.getElementsByName("uniqueAmenity").forEach((e, i) => {
+        if(e.checked) uniqueAmenityList.push(i+1);
+      });
+
+      return {
+        "cityId": 1,
+        "name": document.getElementById("roomName").value,
+        "desc": document.getElementById("roomDesc").value,
+        "type": document.getElementById("roomStructure").value,
+        "maxPeople": document.getElementById("guestNum").value,
+        "reserveOption": document.querySelectorAll('input[name="reserveType"]:checked')[0].value,
+        "bedroomNum": document.getElementById("bedroomNum").value,
+        "bedNum": document.getElementById("bedNum").value,
+        "bathroomNum": document.getElementById("bathroomNum").value,
+        "price": document.getElementById("roomPrice").value,
+        "cleaningPrice": 0, // 업슴...
+        "checkInTime": 25200000, // 업슴...
+        "checkOutTime": 10800000, // 업슴...
+        "usingRule": "사용 규칙이 여기에 저장됨니다...",
+        "reserveStartAt": "2024-01-01", // 업슴...
+        "reserveEndAt": "2024-01-02", // 업슴...
+        "accessibility": [],
+        "amenities": amenityList,
+        "uniqueAmenities": uniqueAmenityList,
+        "roomLocationRequest": {
+            "locationX": this.location[0],
+            "locationY": this.location[1]
+        },
+        "safetySupplyRequest": {
+            "fireAlarm": document.getElementById("check_fire_alarm").checked,
+            "aidKit": document.getElementById("check_first_aid_kit").checked,
+            "extinguisher": document.getElementById("check_extinguisher").checked,
+            "coAlarm": document.getElementById("check_co_alarm").checked
+        }
+      };
+    },
+    async addRoomRequest() {
+      const data = await postData("/room/", this.packRoomData());
+      console.log(data);
+    },
+    async editRoomRequest() {
+      const data = await postData("/room/" + this.$route.query.roomId, this.packRoomData());
+      console.log(data);
+    },
   },
 };
 </script>
@@ -333,7 +432,7 @@ export default {
   gap: 15px;
   overflow: auto;
 }
-hr {
+.hrLine {
   width: 500px;
   border: 0px;
   border-bottom: 1px solid lightgrey;
