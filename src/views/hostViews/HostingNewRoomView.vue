@@ -237,7 +237,8 @@
 import NavBar from "../../components/NavBar/HostNavBar.vue";
 import CheckBox from "../../components/host/HostCheckBox.vue";
 import KakaoMap from "../../components/KakaoMap.vue";
-import {getData, postData} from "../../api/axios.js"
+import {getData, postData} from "../../api/axios.js";
+import { mapGetters } from 'vuex';
 
 export default {
   name: "HostingNewRoomView",
@@ -289,6 +290,9 @@ export default {
     }
     this.defaultValueSet() 
   },
+  computed: {
+    ...mapGetters(['getLoginState']),
+  },
   methods: {
     async defaultValueSet() {
       if (!this.$route.query.roomId) return null;
@@ -306,10 +310,10 @@ export default {
         document.getElementById("roomDesc").textContent = data.desc;
         document.getElementsByName("reserveType")[data.reserveOption-1].setAttribute("checked", "true");
         document.getElementById("roomPrice").setAttribute("value", data.price);
-        data.amenity.forEach(e => {
+        data.amenity&&data.amenity.forEach(e => {
           document.getElementById("check_" + e.name)&&document.getElementById("check_" + e.name).setAttribute("checked", "true");
         });
-        data.uniqueAmenity.forEach(e => {
+        data.uniqueAmenity&&data.uniqueAmenity.forEach(e => {
           document.getElementById("check_" + e.name)&&document.getElementById("check_" + e.name).setAttribute("checked", "true");
         });
         document.getElementById("check_fire_alarm").setAttribute("checked", data.safetySupply.fireAlarm);
@@ -412,11 +416,19 @@ export default {
       };
     },
     async addRoomRequest() {
-      const data = await postData("/room/", this.packRoomData());
+      if (!this.getLoginState) {
+        alert("로그인 세션이 만료되었습니다.");
+        return null;
+      }
+      const data = await postData("/room/", this.packRoomData(), {Authorization: localStorage.getItem("token")});
       console.log(data);
     },
     async editRoomRequest() {
-      const data = await postData("/room/" + this.$route.query.roomId, this.packRoomData());
+      if (!this.getLoginState) {
+        alert("로그인 세션이 만료되었습니다.");
+        return null;
+      }
+      const data = await postData("/room/" + this.$route.query.roomId, this.packRoomData(), {Authorization: localStorage.getItem("token")});
       console.log(data);
     },
   },

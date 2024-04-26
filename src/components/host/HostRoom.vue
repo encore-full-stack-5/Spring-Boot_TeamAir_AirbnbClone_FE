@@ -51,10 +51,11 @@ props: {
 },
 methods: {
     RouteRoom() {
+        console.log(this.roomId);
         this.$router.push({ 
             path: '/become-a-host' ,
             query: {
-                roomId: 21//this.roomId,
+                roomId: this.roomId,
             },
         })
     },

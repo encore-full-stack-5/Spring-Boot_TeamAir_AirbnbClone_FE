@@ -25,7 +25,8 @@
             </div>
             <div class="listMyRoom">
                 <!-- 룸 박스 -->
-                <RoomBox 
+                
+                <!-- <RoomBox 
                     roomID=21
                     loacationName="붓싼"
                     roomName="개쩌는 짱짱 숙소"
@@ -33,7 +34,19 @@
                     infoText1="붓싼 앞바다 속 1km"
                     infoText2="4.15 ~ 4.18"
                     price="654,321"
+                /> -->
+                <div v-if="this.roomList" class="listMyRoom" >
+                <RoomBox v-for="(myRoom, i) in this.roomList"
+                    :key="i"
+                    :roomId="myRoom.id"
+                    :loacationName="myRoom.city.name"
+                    :roomName="myRoom.name"
+                    :rating="4.99"
+                    :infoText1="myRoom.reserveEndAt.substring(5)"
+                    :infoText2="myRoom.reserveStartAt.substring(5)"
+                    :price="myRoom.price"
                 />
+                </div>
                 <!-- <div class="roomBox">
                     <img src="" alt="">
                     <div class="roomDescHead">
@@ -56,6 +69,7 @@
 <script>
 import NavBar from '../../components/NavBar/HostNavBar.vue'
 import RoomBox from '../../components/host/HostRoom.vue'
+import {getData} from "../../api/axios.js";
 
 export default {
     name: "HostingListView",
@@ -63,10 +77,23 @@ export default {
         NavBar,
         RoomBox,
     },
+    data() {
+        return {
+            roomList: [],
+        };
+    },
+    mounted() {
+        this.roomLoad() 
+    },
     methods: {
         newRoom() {
             this.$router.push({ path: '/become-a-host' })
-        }
+        },
+        
+    async roomLoad() {
+        const data = await getData("/room/host/" + 1);
+        this.roomList = data;
+    }, 
     }
 }
 </script>
@@ -103,6 +130,10 @@ export default {
     cursor: pointer;
 }
 .listMyRoom {
-    width: calc(26vw + 1px)
+    width: calc(26vw + 1px);
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+
 }
 </style>

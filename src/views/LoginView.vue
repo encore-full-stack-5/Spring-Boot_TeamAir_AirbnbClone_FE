@@ -69,7 +69,7 @@ export default {
       this.$router.push("/signup");
     },
     login(){
-      axios.post("http://192.168.56.1:9000/api/v1/user/login",{
+      axios.post("http://192.168.80.38:9000/api/v1/user/login",{
         email: this.userId,
         password: this.password
       })
@@ -83,9 +83,6 @@ export default {
           console.log(err);
         });
     }
-  },
-  components: {
-    GuestNavBar,
   },
   components: {
     GuestNavBar,

@@ -8,12 +8,12 @@ export default createStore({
     },
     getters: {
         getLoginState(state){
-            return state.isLogin;
+            return state.loginState;
         },
     },
     mutations: {
         mutateLoginState(state){
-            state.isLogin = localStorage.getItem("token") == null ? false : true;
+            state.loginState = localStorage.getItem("token") == null ? false : true;
         }
     },
     actions: {
