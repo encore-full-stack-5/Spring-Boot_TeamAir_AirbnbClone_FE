@@ -1,19 +1,10 @@
 <template>
-    <div class="nav-bar">
-        <div class="bar">
-            <RouterLink to="/" class="bar-content">
-                <img class="logo" src="../../assets/airbnb_logo.png">
-                <div style="color: red; font-size: 25px; font-family: fantasy;">Team Air</div>
-            </RouterLink>
-            <div class="bar-content" style="justify-content: center;">
-                <div>숙소</div>
-                <div>체험</div>
-                <div>온라인 체험</div>
-            </div>
-            <div class="bar-content">
-                <RouterLink to="/hosting">당신의 공간을 에어비앤비하세요</RouterLink>
-                <img class="logo" src="../../assets/user_logo.png" @click="() => {personMenuOpen = !personMenuOpen}">
-            </div>
+  <div class="nav-bar">
+    <div class="bar">
+      <div class="bar-content">
+        <img class="logo" src="../../assets/airbnb_logo.png" />
+        <div style="color: red; font-size: 25px; font-family: fantasy">
+          Team Air
         </div>
         <div class="person-menu" v-show="personMenuOpen">
             <RouterLink to="/personal-info"><div>계정 관리</div></RouterLink>
@@ -52,6 +43,14 @@
         </div>
 
     </div>
+    <div class="search-bar">
+      <div style="width: 35%">여행지</div>
+      <div style="width: 15%">체크인</div>
+      <div style="width: 15%">체크아웃</div>
+      <div style="width: 35%">여행자</div>
+    </div>
+    <div class="bar"></div>
+  </div>
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex'
@@ -129,126 +128,44 @@ export default {
 }
 </script>
 <style>
-a{
-    /* text-decoration-line: none;s */
-    text-decoration: none;
+.nav-var {
+  width: 100%;
 }
-.nav-var{
-    width: 100%;
+.bar {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
 }
-.bar{
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
+.bar-content {
+  display: flex;
+  align-items: center;
+  width: 400px;
 }
-.bar-content{
-    display: flex;
-    align-items: center;
-    width: 400px;
+.bar-content div {
+  padding-inline: 10px;
 }
-.bar-content  div{
-    padding-inline: 10px;
+.logo {
+  display: block;
+  margin: auto 10px auto 30px;
+  height: 40px;
 }
-.person-menu{
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    width: 200px;
-    border: 1px solid black;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    padding-top: 15px;
-    padding-bottom: 15px;
+.search-bar {
+  width: 90%;
+  height: 60px;
+  margin-inline: 5%;
+  border: black solid 1px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
 }
-.person-menu div{
-    padding: 20px;
+.search-bar div {
+  text-align: left;
+  padding: 15px;
+  border-radius: 30px;
 }
-.person-menu div:hover{
-    background: lightgray;
-}
-.logo{
-    display: block;
-    margin: auto 10px auto 30px;
-    height: 40px;
-}
-.search-bar{
-    width: 60%;
-    height: 60px;
-    margin-inline: auto;
-    border: black solid 1px;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: row;
-}
-.search-bar div{
-    text-align: left;
-    /* padding: 15px; */
-    padding-left: 20px;
-    border-radius: 30px;
-}
-.search-bar div:hover{
-    background: lightgray;
-}
-.search-bar span{
-    display: block;
-    font-size: 15px;
-}
-.search-bar input{
-    border: 0px;
-    background-color: transparent;
-    outline: none;
-}
-.black-bg{
-    position: absolute;
-    background-color: black; opacity: 0.3;
-    width: 100%;
-    height: 100%;
-    margin-top: 10px;
-}
-.select-city-container{
-    width: 30%;
-    aspect-ratio: 1/1;
-    margin-left: 20%;
-    display: flex;
-    flex-direction: column;
-    border: 1px black solid;
-    border-radius: 20px;
-    position: absolute;
-    background-color: white;
-    margin-top: 20px;
-}
-.select-check-in-container{
-    width: 30%;
-    aspect-ratio: 1/1;
-    margin-left: 35%;
-    border: 1px black solid;
-    border-radius: 20px;
-    position: absolute;
-    background-color: white;
-    margin-top: 20px;
-}
-.select-check-out-container{
-    width: 30%;
-    aspect-ratio: 1/1;
-    margin-left: 35%;
-    border: 1px black solid;
-    border-radius: 20px;
-    position: absolute;
-    background-color: white;
-    margin-top: 20px;
-}
-.select-guest-num-container{
-    width: 30%;
-    aspect-ratio: 1/1;
-    margin-left: 50%;
-    border: 1px black solid;
-    border-radius: 20px;
-    position: absolute;
-    background-color: white;
-    margin-top: 20px;
+.search-bar div:hover {
+  background: lightgray;
 }
 </style>
