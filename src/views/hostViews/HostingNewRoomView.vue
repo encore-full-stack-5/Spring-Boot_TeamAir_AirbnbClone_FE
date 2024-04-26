@@ -237,7 +237,8 @@
 import NavBar from "../../components/NavBar/HostNavBar.vue";
 import CheckBox from "../../components/host/HostCheckBox.vue";
 import KakaoMap from "../../components/KakaoMap.vue";
-import {getData, postData} from "../../api/axios.js"
+import {getData, postData} from "../../api/axios.js";
+import { mapGetters } from 'vuex';
 
 export default {
   name: "HostingNewRoomView",
@@ -288,6 +289,9 @@ export default {
       this.geocoderInit();
     }
     this.defaultValueSet() 
+  },
+  computed: {
+    ...mapGetters(['getLoginState']),
   },
   methods: {
     async defaultValueSet() {
@@ -412,11 +416,19 @@ export default {
       };
     },
     async addRoomRequest() {
-      const data = await postData("/room/", this.packRoomData());
+      if (!this.getLoginState) {
+        alert("로그인 세션이 만료되었습니다.");
+        return null;
+      }
+      const data = await postData("/room/", this.packRoomData(), {Authorization: localStorage.getItem("token")});
       console.log(data);
     },
     async editRoomRequest() {
-      const data = await postData("/room/" + this.$route.query.roomId, this.packRoomData());
+      if (!this.getLoginState) {
+        alert("로그인 세션이 만료되었습니다.");
+        return null;
+      }
+      const data = await postData("/room/" + this.$route.query.roomId, this.packRoomData(), {Authorization: localStorage.getItem("token")});
       console.log(data);
     },
   },

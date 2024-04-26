@@ -87,9 +87,6 @@ export default {
   components: {
     GuestNavBar,
   },
-  components: {
-    GuestNavBar,
-  },
 };
 </script>
 

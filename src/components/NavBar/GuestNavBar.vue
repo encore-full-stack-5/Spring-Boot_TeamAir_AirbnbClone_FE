@@ -41,7 +41,7 @@
             <div class="select-check-out-container" v-show="checkOutOptionOpen"></div>
             <div class="select-guest-num-container" v-show="guestOptionOpen"></div>
         </div>
-
+      </div>
     </div>
     <div class="search-bar">
       <div style="width: 35%">여행지</div>
